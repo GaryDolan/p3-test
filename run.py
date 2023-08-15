@@ -38,8 +38,12 @@ def display_welcome_msg():
 
     # print(pikachu)
 
-    # pikachu = AsciiArt.from_image("pikachu1.png")
-    # pikachu.to_terminal(columns=50)
+    pikachu = AsciiArt.from_image("pikachu.png")
+    pikachu.to_terminal(columns=100, width_ratio=2.5)
+
+    pikachu = AsciiArt.from_image("Alakazam.png")
+    pikachu.to_terminal(columns=100, width_ratio=2.5)
+
     print_ascii_art("banner")
     print_ascii_art("pikachu")
 
