@@ -39,13 +39,14 @@ def display_welcome_msg():
     # print(pikachu)
 
     pikachu = AsciiArt.from_image("pikachu.png")
-    pikachu.to_terminal(columns=100, width_ratio=2.5)
+    pikachu.to_terminal(columns=50, width_ratio=1)
 
     pikachu = AsciiArt.from_image("Alakazam.png")
-    pikachu.to_terminal(columns=100, width_ratio=2.5)
+    pikachu.to_terminal(columns=100, width_ratio=2)
 
     print_ascii_art("banner")
     print_ascii_art("pikachu")
+    print_ascii_art("alakazam")
 
 
 def print_ascii_art(art_name):
