@@ -41,6 +41,7 @@ def display_welcome_msg():
     # pikachu = AsciiArt.from_image("pikachu1.png")
     # pikachu.to_terminal(columns=50)
     print_ascii_art("banner")
+    print_ascii_art("pikachu")
 
 
 def print_ascii_art(art_name):
