@@ -1,6 +1,6 @@
-import pyfiglet as pyf
-from ascii_magic import AsciiArt
-import ascii_art
+# import pyfiglet as pyf
+# from ascii_magic import AsciiArt
+from ascii_art1 import print_ascii_art
 import os
 
 
@@ -28,7 +28,7 @@ def display_welcome_msg():
     # pikachu.to_terminal(columns=100, width_ratio=2)
 
     print_ascii_art("banner")
-    print_ascii_art("pikachu_banner")
+    # print_ascii_art("pikachu_banner")
 
     # clear_terminal()
 
@@ -138,9 +138,9 @@ def display_welcome_msg():
     # print_ascii_art("water_energy")
 
 
-def print_ascii_art(art_name):
-    a_art = getattr(ascii_art, art_name)
-    print(a_art)
+# def print_ascii_art(art_name):
+#     a_art = getattr(ascii_art, art_name)
+#     print(a_art)
 
 
 # ----------------------------- MAIN -------------------------------
