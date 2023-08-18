@@ -29,9 +29,9 @@ def display_welcome_msg():
     print_ascii_art("banner")
     print_ascii_art("pikachu_banner")
 
-    # print_ascii_art("alakazam")
-    # print_ascii_art("blastoise")
-    # print_ascii_art("chansey")
+    print_ascii_art("alakazam")
+    print_ascii_art("blastoise")
+    print_ascii_art("chansey")
     # print_ascii_art("charizard")
     # print_ascii_art("clefairy")
     # print_ascii_art("gyarados")
