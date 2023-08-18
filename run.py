@@ -1,15 +1,17 @@
-# import pyfiglet as pyf
+import pyfiglet as pyf
+
 # from ascii_magic import AsciiArt
 from ascii_art1 import print_ascii_art
 import os
 
 
 def display_welcome_msg():
-    # font = pyf.Figlet(font="big", width=110)
-    # welcome_msg = font.renderText("Pokemon Portfolio")
-    # # welcome_msg = rendered_msg.center(110)
+    font = pyf.Figlet(font="big", width=110)
+    welcome_msg = font.renderText("Pokemon Portfolio")
+    welcome_msg = welcome_msg.rstrip()
+    # welcome_msg = rendered_msg.center(110)
 
-    # print(welcome_msg)
+    print(welcome_msg)
 
     # font4 = pyf.Figlet(font="doom", width=110)
     # welcome_msg4 = font4.renderText("Pokemon Portfolio")
@@ -27,20 +29,20 @@ def display_welcome_msg():
     # pikachu = AsciiArt.from_image("Alakazam.png")
     # pikachu.to_terminal(columns=100, width_ratio=2)
 
-    print_ascii_art("banner")
+    # print_ascii_art("banner")
     print_ascii_art("pikachu_banner")
 
     # clear_terminal()
 
-    print_ascii_art("alakazam")
-    print_ascii_art("blastoise")
-    print_ascii_art("chansey")
-    print_ascii_art("charizard")
-    print_ascii_art("clefairy")
-    print_ascii_art("gyarados")
-    print_ascii_art("hitmonchan")
-    print_ascii_art("machamp")
-    print_ascii_art("magneton")
+    # print_ascii_art("alakazam")
+    # print_ascii_art("blastoise")
+    # print_ascii_art("chansey")
+    # print_ascii_art("charizard")
+    # print_ascii_art("clefairy")
+    # print_ascii_art("gyarados")
+    # print_ascii_art("hitmonchan")
+    # print_ascii_art("machamp")
+    # print_ascii_art("magneton")
     # print_ascii_art("mewtwo")
     # print_ascii_art("nidoking")
     # print_ascii_art("ninetales")
