@@ -9,9 +9,10 @@ def display_welcome_msg():
     font = pyf.Figlet(font="big", width=110)
     welcome_msg = font.renderText("Pokemon Portfolio")
     welcome_msg = welcome_msg.rstrip()
-    # welcome_msg = rendered_msg.center(110)
 
     print(welcome_msg)
+    # welcome_msg_formatted = _
+    # print(welcome_msg)
 
     # font4 = pyf.Figlet(font="doom", width=110)
     # welcome_msg4 = font4.renderText("Pokemon Portfolio")
