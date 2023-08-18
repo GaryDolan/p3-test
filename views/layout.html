@@ -29,6 +29,7 @@
             user-select: none;
             -ms-user-select: none;
             -webkit-user-select: none;
+            background-color: white;
         }
 
         .xterm.focus,
@@ -66,8 +67,8 @@
 
         .xterm .composition-view {
             /* TODO: Composition position got messed up somewhere */
-            background: white;
-            color: black;
+            background: #000;
+            color: #FFF;
             display: none;
             position: absolute;
             white-space: nowrap;
@@ -80,7 +81,7 @@
 
         .xterm .xterm-viewport {
             /* On OS X this is required in order for the scroll bar to appear fully opaque */
-            background-color: white;
+            background-color: #000;
             overflow-y: scroll;
             cursor: default;
             position: absolute;
@@ -88,7 +89,7 @@
             left: 0;
             top: 0;
             bottom: 0;
-            background-color: white;
+            background-color: rgb(0, 0, 0);
             width: 730px;
         }
 
@@ -164,7 +165,7 @@
             width: 200px;
             height: 40px;
             background-color: #E84610;
-            border: 1px solid white;
+            border: 1px solid grey;
             color: white;
             text-transform: uppercase;
             margin: 10px;
