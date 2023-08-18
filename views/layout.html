@@ -29,7 +29,6 @@
             user-select: none;
             -ms-user-select: none;
             -webkit-user-select: none;
-            background-color: white;
         }
 
         .xterm.focus,
@@ -159,6 +158,15 @@
 
         .xterm-underline {
             text-decoration: underline;
+        }
+
+        /* Set terminal background color to white */
+        .xterm .xterm-viewport,
+        .xterm .xterm-screen,
+        .xterm .xterm-cursor,
+        .xterm .xterm-accessibility,
+        .xterm .xterm-message {
+            background-color: white;
         }
 
         button {
