@@ -1,6 +1,7 @@
 import pyfiglet as pyf
 from ascii_magic import AsciiArt
 import ascii_art
+import os
 
 
 def display_welcome_msg():
@@ -28,10 +29,10 @@ def display_welcome_msg():
 
     print_ascii_art("banner")
     print_ascii_art("pikachu_banner")
-
-    print_ascii_art("alakazam")
+    clear_terminal()
+    # print_ascii_art("alakazam")
     print_ascii_art("blastoise")
-    print_ascii_art("chansey")
+    # print_ascii_art("chansey")
     # print_ascii_art("charizard")
     # print_ascii_art("clefairy")
     # print_ascii_art("gyarados")
@@ -141,6 +142,11 @@ def print_ascii_art(art_name):
 
 
 # ----------------------------- MAIN -------------------------------
+def clear_terminal():
+    if os.name == "posix":  # Linux and macOS
+        os.system("clear")
+    elif os.name == "nt":  # Windows
+        os.system("cls")
 
 
 def main():
