@@ -140,10 +140,26 @@ def display_welcome_msg():
     # print_ascii_art("psychic_energy")
     # print_ascii_art("water_energy")
 
+    # def print_ascii_art(art_name):
+    #     a_art = getattr(ascii_art, art_name)
+    #     print(a_art)
 
-# def print_ascii_art(art_name):
-#     a_art = getattr(ascii_art, art_name)
-#     print(a_art)
+    login_options()
+
+
+def login_options():
+    """ """
+    print_center_text(
+        "Please enter your choice, 1, 2 or 3 from one of the options below"
+    )
+
+
+def print_center_text(text):
+    """ """
+    terminal_width = os.get_terminal_size().columns
+    spaces = int((terminal_width - len(text)) / 2)
+    centered_text = " " * spaces + text
+    print(centered_text)
 
 
 # ----------------------------- MAIN -------------------------------
