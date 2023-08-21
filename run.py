@@ -11,6 +11,9 @@ import os
 # Add colors to text output
 from termcolor import colored
 
+# Allows access to functions to work with regular expressions
+import re
+
 
 # ---------------------------- API SETUP ------------------------------
 
@@ -26,11 +29,11 @@ from termcolor import colored
 # SCOPE = [
 #     "https://www.googleapis.com/auth/spreadsheets",
 #     "https://www.googleapis.com/auth/drive.file",
-#     "https://www.googleapis.com/auth/drive",
-# ]
+#     "https://www.googleapis.com/auth/drive"
+#     ]
 
 # Create a Credentials instance from a service account json file
-# CREDS = Credentials.from_service_account_file("creds.json")
+# CREDS = Credentials.from_service_account_file('creds.json')
 
 # Create a copy of the credentials with specified scope
 # SCOPED_CREDS = CREDS.with_scopes(SCOPE)
@@ -39,7 +42,7 @@ from termcolor import colored
 # GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 
 # Access sheet for project
-# SHEET = GSPREAD_CLIENT.open("pokemon_portfolio")
+# SHEET = GSPREAD_CLIENT.open('pokemon_portfolio')
 
 # login = SHEET.worksheet('login')
 
@@ -49,7 +52,7 @@ from termcolor import colored
 # --------------------------- CLASSES -----------------------------
 
 
-# -------------------------- FUNCTIONS ----------------------------
+# --------------------- APP LOGIC FUNCTIONS -----------------------
 
 
 def display_welcome_banner():
@@ -61,11 +64,7 @@ def display_welcome_banner():
     Returns:
         None
     """
-    # font = pyf.Figlet(font="big", width=110)
-    # welcome_msg = font.renderText("Pokemon Portfolio")
-    # welcome_msg = welcome_msg.rstrip()
-    # print(welcome_msg)
-    print_as_art_font("Pokemon Portfolio")
+    print_art_font("Pokemon Portfolio")
 
     print_pokemon("pikachu_banner")
 
@@ -83,14 +82,29 @@ def login_options():
         None
     """
     while True:
+        # colored_text = colored(
+        #     "Please select an option (1-3) from the options and enter it below\n",
+        #     attrs=["bold", "underline"],
+        # )
+        # print(len(colored_text))
+        # print(repr(colored_text))
+
+        # plain_colored_text = re.sub(r'(\x1b|\\e|\\033)\[[0-9;]*m', "", colored_text)
+        # print(len(plain_colored_text))
+        # print(plain_colored_text)
+
         print_center_text(
             colored(
                 "Please select an option (1-3) from the options and enter it below\n",
                 attrs=["bold", "underline"],
             )
         )
-        print("1. Create an account")
-        print("2. Log into your account")
+
+        print_center_text(
+            "Please select an option (1-3) from the options and enter it below\n"
+        )
+        print("1. Log into your account")
+        print("2. Create an account")
         print("3. Password recovery\n")
 
         login_selection = input("Enter your selection:\n")
@@ -98,29 +112,75 @@ def login_options():
         validated_selection = validate_input(login_selection, list(range(1, 4)))
 
         if validated_selection == 1:
-            create_account()
+            account_login()
             break
         elif validated_selection == 2:
-            account_login()
+            create_account()
             break
         elif validated_selection == 3:
             password_recovery()
             break
 
 
+def account_login():
+    clear_terminal()
+    print_art_font("        Account Login")
+
+
+def create_account():
+    clear_terminal()
+    print_art_font(" Account Creation")
+
+
+def password_recovery():
+    clear_terminal()
+    print_art_font("  Recover Password")
+
+
+# ----------------------- HELPER FUNCTIONS ------------------------
+
+
+def print_art_font(string):
+    """ """
+    font = pyf.Figlet(font="big", width=110)
+    msg = font.renderText(string)
+    msg = msg.rstrip()
+    print(msg)
+
+
 def print_center_text(text):
     """
     Centers and prints the given text to the terminal
+    If text contains ascii escape codes for color etc
+    the function will stip these out for calculating
+    spacing but will still print original text
 
     Parameters:
         text (string): Text to be centered and printed
     Returns:
         None
     """
+
     terminal_width = os.get_terminal_size().columns
-    spaces = int((terminal_width - len(text)) / 2)
+
+    if isinstance(text, str):
+        processed_text = text
+    else:
+        # Text contain ascii escape chars, use re to clear them before calculations
+        processed_text = re.sub(r"(\x1b|\e|\033)\[[0-9;]*m", "", text)
+    print(repr(processed_text))
+    print(len(processed_text))
+    spaces = int((terminal_width - len(processed_text)) / 2)
+    print(spaces)
     centered_text = " " * spaces + text
     print(centered_text)
+
+
+def clear_terminal():
+    if os.name == "posix":  # Linux and macOS
+        os.system("clear")
+    elif os.name == "nt":  # Windows
+        os.system("cls")
 
 
 def validate_input(input_str, available_choices):
@@ -147,32 +207,12 @@ def validate_input(input_str, available_choices):
     return input_value
 
 
-def create_account():
-    print_as_art_font(" Account Creation")
-
-
-def account_login():
-    print_as_art_font("        Account Login")
-
-
-def password_recovery():
-    print_as_art_font("  Recover Password")
-
-
-def print_as_art_font(string):
-    """ """
-    font = pyf.Figlet(font="big", width=110)
-    msg = font.renderText(string)
-    msg = msg.rstrip()
-    print(msg)
-
-
 # ----------------------------- MAIN -------------------------------
 
 
 def main():
     """
-    Run Pokemon Portfolio command-line utility
+    Run Pokemon Portfolio terminal application
     """
     display_welcome_banner()
 
