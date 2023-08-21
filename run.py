@@ -93,15 +93,14 @@ def login_options():
         # print(len(plain_colored_text))
         # print(plain_colored_text)
 
-        print_center_text(
-            colored(
-                "Please select an option (1-3) from the options and enter it below\n",
-                attrs=["bold", "underline"],
-            )
-        )
+        msg = "Please select an option (1-3) from the options and enter it below\n"
+        msglength = len(msg)
+        print(msglength)
+
+        print_center_text(colored(msg, attrs=["bold", "underline"]), msglength)
 
         print_center_text(
-            "Please select an option (1-3) from the options and enter it below\n"
+            "Please select an option (1-3) from the options and enter it below\n", 66
         )
         print("1. Log into your account")
         print("2. Create an account")
@@ -148,7 +147,7 @@ def print_art_font(string):
     print(msg)
 
 
-def print_center_text(text):
+def print_center_text(text, length):
     """
     Centers and prints the given text to the terminal
     If text contains ascii escape codes for color etc
@@ -163,14 +162,14 @@ def print_center_text(text):
 
     terminal_width = os.get_terminal_size().columns
 
-    if isinstance(text, str):
-        processed_text = text
-    else:
-        # Text contain ascii escape chars, use re to clear them before calculations
-        processed_text = re.sub(r"(\x1b|\e|\033)\[[0-9;]*m", "", text)
-    print(repr(processed_text))
-    print(len(processed_text))
-    spaces = int((terminal_width - len(processed_text)) / 2)
+    # if isinstance(text, str):
+    #     processed_text = text
+    # else:
+    # Text contain ascii escape chars, use re to clear them before calculations
+    # processed_text = re.sub(r"(\x1b|\e|\033)\[[0-9;]*m", "", text)
+    # print(repr(processed_text))
+    # print(len(processed_text))
+    spaces = int((terminal_width - length) / 2)
     print(spaces)
     centered_text = " " * spaces + text
     print(centered_text)
