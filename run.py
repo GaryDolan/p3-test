@@ -146,11 +146,11 @@ def create_account():
 
 
 def account_login():
-    print_as_art_font("     Account Login")
+    print_as_art_font("          Account Login")
 
 
 def password_recovery():
-    print_as_art_font(" Recover Password")
+    print_as_art_font("  Recover Password")
 
 
 def print_as_art_font(string):
