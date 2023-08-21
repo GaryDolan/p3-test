@@ -146,7 +146,7 @@ def create_account():
 
 
 def account_login():
-    print_as_art_font("          Account Login")
+    print_as_art_font("        Account Login")
 
 
 def password_recovery():
