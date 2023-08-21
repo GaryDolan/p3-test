@@ -1,4 +1,4 @@
-def print_ascii_art(name):
+def print_pokemon(name):
     pokemon_art = {
         "pikachu_banner": r"""
 

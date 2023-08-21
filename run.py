@@ -1,180 +1,174 @@
+# ------------------------- LIBRARY IMPORTS ---------------------------
+# Created by me to store and print pokemon ascii art
+from pokemon_ascii_art import print_pokemon
+
+# Creates text-based ASCII art banners
 import pyfiglet as pyf
 
-# from ascii_magic import AsciiArt
-from ascii_art1 import print_ascii_art
+# Allows interaction with the operating systems functionalities
 import os
 
 
-def display_welcome_msg():
-    font = pyf.Figlet(font="big", width=110)
-    welcome_msg = font.renderText("Pokemon Portfolio")
-    welcome_msg = welcome_msg.rstrip()
+# ---------------------------- API SETUP ------------------------------
 
-    print(welcome_msg)
-    # welcome_msg_formatted = _
+# Import the entire gspread library -
+# - access to all classes, methods and functions
+import gspread
+
+# Import Credentials class from the service account function -
+# - part of the google oauth library
+from google.oauth2.service_account import Credentials
+
+# Specify what parts of the google account the user has access to
+SCOPE = [
+    "https://www.googleapis.com/auth/spreadsheets",
+    "https://www.googleapis.com/auth/drive.file",
+    "https://www.googleapis.com/auth/drive",
+]
+
+# Create a Credentials instance from a service account json file
+CREDS = Credentials.from_service_account_file("creds.json")
+
+# Create a copy of the credentials with specified scope
+SCOPED_CREDS = CREDS.with_scopes(SCOPE)
+
+# Create gspread client using gspread authorize method
+GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
+
+# Access sheet for project
+SHEET = GSPREAD_CLIENT.open("pokemon_portfolio")
+
+# login = SHEET.worksheet('login')
+
+# data = login.get_all_values()
+# print(data)
+
+# --------------------------- CLASSES -----------------------------
+
+
+# -------------------------- FUNCTIONS ----------------------------
+
+
+def display_welcome_banner():
+    """
+    Displays welcome banner and image
+
+    Parameters:
+        None
+    Returns:
+        None
+    """
+    # font = pyf.Figlet(font="big", width=110)
+    # welcome_msg = font.renderText("Pokemon Portfolio")
+    # welcome_msg = welcome_msg.rstrip()
     # print(welcome_msg)
+    print_as_art_font("Pokemon Portfolio")
 
-    # font4 = pyf.Figlet(font="doom", width=110)
-    # welcome_msg4 = font4.renderText("Pokemon Portfolio")
-    # print(welcome_msg4)
-
-    # font8 = pyf.Figlet(font="standard", width=110)
-    # welcome_msg8 = font8.renderText("Pokemon Portfolio")
-    # print(welcome_msg8)
-
-    # print(pikachu)
-
-    # pikachu = AsciiArt.from_image("pikachu.png")
-    # pikachu.to_terminal(columns=50, width_ratio=1)
-
-    # pikachu = AsciiArt.from_image("Alakazam.png")
-    # pikachu.to_terminal(columns=100, width_ratio=2)
-
-    # print_ascii_art("banner")
-    print_ascii_art("pikachu_banner")
-
-    # clear_terminal()
-
-    # print_ascii_art("alakazam")
-    # print_ascii_art("blastoise")
-    # print_ascii_art("chansey")
-    # print_ascii_art("charizard")
-    # print_ascii_art("clefairy")
-    # print_ascii_art("gyarados")
-    # print_ascii_art("hitmonchan")
-    # print_ascii_art("machamp")
-    # print_ascii_art("magneton")
-    # print_ascii_art("mewtwo")
-    # print_ascii_art("nidoking")
-    # print_ascii_art("ninetales")
-    # print_ascii_art("poliwrath")
-    # print_ascii_art("raichu")
-    # print_ascii_art("venusaur")
-    # print_ascii_art("zapdos")
-    # print_ascii_art("beedrill")
-    # print_ascii_art("dragonair")
-    # print_ascii_art("dugtrio")
-    # print_ascii_art("electabuzz")
-    # print_ascii_art("electrode")
-    # print_ascii_art("pidgeotto")
-    # print_ascii_art("arcanine")
-    # print_ascii_art("charmeleon")
-    # print_ascii_art("dewgong")
-    # print_ascii_art("dratini")
-    # print_ascii_art("farfetchd")
-    # print_ascii_art("growlithe")
-    # print_ascii_art("haunter")
-    # print_ascii_art("ivysaur")
-    # print_ascii_art("jynx")
-    # print_ascii_art("kadabra")
-    # print_ascii_art("kakuna")
-    # print_ascii_art("machoke")
-    # print_ascii_art("magikarp")
-    # print_ascii_art("magmar")
-    # print_ascii_art("nidorino")
-    # print_ascii_art("poliwhirl")
-    # print_ascii_art("porygon")
-    # print_ascii_art("raticate")
-    # print_ascii_art("seel")
-    # print_ascii_art("wartortle")
-    # print_ascii_art("abra")
-
-    # print_ascii_art("bulbasaur")
-    # print_ascii_art("caterpie")
-    # print_ascii_art("charmander")
-    # print_ascii_art("diglett")
-    # print_ascii_art("doduo")
-    # print_ascii_art("drowzee")
-    # print_ascii_art("gastly")
-    # print_ascii_art("koffing")
-    # print_ascii_art("machop")
-    # print_ascii_art("magnemite")
-    # print_ascii_art("metapod")
-    # print_ascii_art("nidoran_m")
-    # print_ascii_art("onix")
-    # print_ascii_art("pidgey")
-    # print_ascii_art("pikachu")
-    # print_ascii_art("poliwag")
-    # print_ascii_art("ponyta")
-    # print_ascii_art("rattata")
-    # print_ascii_art("sandshrew")
-    # print_ascii_art("squirtle")
-    # print_ascii_art("starmie")
-    # print_ascii_art("staryu")
-    # print_ascii_art("tangela")
-    # print_ascii_art("voltorb")
-    # print_ascii_art("vulpix")
-    # print_ascii_art("weedle")
-
-    # print_ascii_art("clefairy_doll")
-    # print_ascii_art("computer_search")
-    # print_ascii_art("devolution_spray")
-    # print_ascii_art("impostor_professor_oak")
-    # print_ascii_art("item_Finder")
-    # print_ascii_art("lass")
-    # print_ascii_art("pokemon_breeder")
-    # print_ascii_art("pokemon_trader")
-    # print_ascii_art("scoop_up")
-    # print_ascii_art("super_energy_removal")
-    # print_ascii_art("defender")
-    # print_ascii_art("energy_retrieval")
-    # print_ascii_art("full_heal")
-    # print_ascii_art("maintenance")
-    # print_ascii_art("plus_power")
-    # print_ascii_art("pokemon_center")
-    # print_ascii_art("pokemon_flute")
-    # print_ascii_art("pokedex")
-    # print_ascii_art("professor_oak")
-    # print_ascii_art("revive")
-    # print_ascii_art("super_potion")
-    # print_ascii_art("bill")
-    # print_ascii_art("energy_removal")
-    # print_ascii_art("gust_of_wind")
-    # print_ascii_art("potion")
-    # print_ascii_art("switch")
-    # print_ascii_art("double_colorless_energy")
-    # print_ascii_art("fighting_energy")
-    # print_ascii_art("fire_energy")
-    # print_ascii_art("grass_energy")
-    # print_ascii_art("lightning_energy")
-    # print_ascii_art("psychic_energy")
-    # print_ascii_art("water_energy")
-
-    # def print_ascii_art(art_name):
-    #     a_art = getattr(ascii_art, art_name)
-    #     print(a_art)
+    print_pokemon("pikachu_banner")
 
     login_options()
 
 
 def login_options():
-    """ """
-    print_center_text(
-        "Please enter your choice, 1, 2 or 3 from one of the options below"
-    )
+    """
+    Displays the login opitions to user.
+    Takes user input, validates and calls appropiate function.
+
+    Parameters:
+        None
+    Returns:
+        None
+    """
+    while True:
+        print_center_text(
+            "Please select an option (1-3) from the options and enter it below\n"
+        )
+        print("1. Create an account")
+        print("2. Log into your account")
+        print("3. Password recovery\n")
+
+        login_selection = input("Enter your selection:\n")
+
+        validated_selection = validate_input(login_selection, list(range(1, 4)))
+
+        if validated_selection == 1:
+            create_account()
+            break
+        elif validated_selection == 2:
+            account_login()
+            break
+        elif validated_selection == 3:
+            password_recovery()
+            break
 
 
 def print_center_text(text):
-    """ """
+    """
+    Centers and prints the given text to the terminal
+
+    Parameters:
+        text (string): Text to be centered and printed
+    Returns:
+        None
+    """
     terminal_width = os.get_terminal_size().columns
     spaces = int((terminal_width - len(text)) / 2)
     centered_text = " " * spaces + text
     print(centered_text)
 
 
+def validate_input(input_str, available_choices):
+    """
+    Validates input can be converted to an int
+    Also validates that user input was one of the available choices
+
+
+    Parameters:
+        input (string): User input to be validated
+        available_choices (list): List of choices available to user
+    Returns:
+        int or False: Returns input value as an int if valid otherwise returns False
+    """
+    try:
+        input_value = int(input_str)
+        if input_value not in available_choices:
+            raise ValueError(
+                f"Input must be 1 of the choices given ({available_choices[0]} - {available_choices[-1]}), you entered {input_value}\n"
+            )
+    except ValueError as e:
+        print(f"\nInvalid selection: {e}, please select one of the options listed\n")
+        return False
+    return input_value
+
+
+def create_account():
+    print_as_art_font("Account Creation")
+
+
+def account_login():
+    print_as_art_font("Account Login")
+
+
+def password_recovery():
+    print_as_art_font("Password Recovery")
+
+
+def print_as_art_font(string):
+    """ """
+    font = pyf.Figlet(font="big", width=110)
+    msg = font.renderText(string)
+    msg = msg.rstrip()
+    print(msg)
+
+
 # ----------------------------- MAIN -------------------------------
-def clear_terminal():
-    if os.name == "posix":  # Linux and macOS
-        os.system("clear")
-    elif os.name == "nt":  # Windows
-        os.system("cls")
 
 
 def main():
     """
     Run Pokemon Portfolio command-line utility
     """
-    display_welcome_msg()
+    display_welcome_banner()
 
 
 main()
