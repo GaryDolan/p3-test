@@ -8,6 +8,9 @@ import pyfiglet as pyf
 # Allows interaction with the operating systems functionalities
 import os
 
+# Add colors to text output
+from termcolor import colored
+
 
 # ---------------------------- API SETUP ------------------------------
 
@@ -81,7 +84,10 @@ def login_options():
     """
     while True:
         print_center_text(
-            "Please select an option (1-3) from the options and enter it below\n"
+            colored(
+                "Please select an option (1-3) from the options and enter it below\n",
+                attrs=["bold", "underline"],
+            )
         )
         print("1. Create an account")
         print("2. Log into your account")
