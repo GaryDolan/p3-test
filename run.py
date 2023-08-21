@@ -142,15 +142,15 @@ def validate_input(input_str, available_choices):
 
 
 def create_account():
-    print_as_art_font("Account Creation")
+    print_as_art_font(" Account Creation")
 
 
 def account_login():
-    print_as_art_font("Account Login")
+    print_as_art_font("   Account Login")
 
 
 def password_recovery():
-    print_as_art_font("Password Recovery")
+    print_as_art_font("Recover Password")
 
 
 def print_as_art_font(string):
