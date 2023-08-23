@@ -133,7 +133,7 @@ def create_account():
 
 def password_recovery():
     clear_terminal()
-    print_art_font("  Recover Password")
+    print_art_font("  Password Reset")
 
 
 # ----------------------- HELPER FUNCTIONS ------------------------
@@ -162,17 +162,17 @@ def print_center_text(text, length):
 
     terminal_width = os.get_terminal_size().columns
 
-    # if isinstance(text, str):
-    #     processed_text = text
-    # else:
-    # Text contain ascii escape chars, use re to clear them before calculations
-    # processed_text = re.sub(r"(\x1b|\e|\033)\[[0-9;]*m", "", text)
-    # print(repr(processed_text))
+    if isinstance(text, str):
+        processed_text = text
+    else:
+        # Text contain ascii escape chars, use re to clear them before calculations
+        processed_text = re.sub(r"(\x1b|\e|\033)\[[0-9;]*m", "", text)
+    print(repr(processed_text))
     # print(len(processed_text))
     spaces = int((terminal_width - length) / 2)
-    print(spaces)
+    # print(spaces)
     centered_text = " " * spaces + text
-    print(centered_text)
+    # print(centered_text)
 
 
 def clear_terminal():
