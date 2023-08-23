@@ -128,7 +128,7 @@ def account_login():
 
 def create_account():
     clear_terminal()
-    print_art_font(" Account Creation")
+    print_art_font("       Account Creation")
 
 
 def password_recovery():
