@@ -67,6 +67,8 @@ def display_welcome_banner():
     print_art_font("Pokemon Portfolio")
 
     print_pokemon("pikachu_banner")
+    print_pokemon("pikachu_banner")
+    print_pokemon("pikachu_banner")
 
     login_options()
 
