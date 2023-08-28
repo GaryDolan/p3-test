@@ -64,7 +64,7 @@ def display_welcome_banner():
     Returns:
         None
     """
-    print_art_font("Pokemon Portfolio", "blue")
+    print_art_font("Pokemon Portfolio", "yellow")
 
     print_pokemon("pikachu_banner")
 
