@@ -64,10 +64,8 @@ def display_welcome_banner():
     Returns:
         None
     """
-    print_art_font("Pokemon Portfolio")
+    print_art_font("Pokemon Portfolio", "yellow")
 
-    print_pokemon("pikachu_banner")
-    print_pokemon("pikachu_banner")
     print_pokemon("pikachu_banner")
 
     login_options()
@@ -141,12 +139,13 @@ def password_recovery():
 # ----------------------- HELPER FUNCTIONS ------------------------
 
 
-def print_art_font(string):
+def print_art_font(string, color):
     """ """
     font = pyf.Figlet(font="big", width=110)
     msg = font.renderText(string)
     msg = msg.rstrip()
-    print(msg)
+
+    print(colored(msg, color))
 
 
 def print_center_text(text, length):
