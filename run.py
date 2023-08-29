@@ -93,14 +93,8 @@ def login_options():
         # print(len(plain_colored_text))
         # print(plain_colored_text)
 
-        msg = "Please select an option (1-3) from the options and enter it below\n"
-        msglength = len(msg)
-        print(msglength)
-
-        print_center_text(colored(msg, attrs=["bold", "underline"]), msglength)
-
         print_center_text(
-            "Please select an option (1-3) from the options and enter it below\n", 66
+            "Please select an option (1-3) from the options and enter it below\n",
         )
         print("1. Log into your account")
         print("2. Create an account")
