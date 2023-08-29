@@ -123,17 +123,17 @@ def login_options():
 
 def account_login():
     clear_terminal()
-    print_art_font("        Account Login")
+    print_art_font("        Account Login" "yellow")
 
 
 def create_account():
     clear_terminal()
-    print_art_font(" Account Creation")
+    print_art_font(" Account Creation", "yellow")
 
 
 def password_recovery():
     clear_terminal()
-    print_art_font("       Password Reset")
+    print_art_font("       Password Reset" "yellow")
 
 
 # ----------------------- HELPER FUNCTIONS ------------------------
