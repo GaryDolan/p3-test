@@ -458,7 +458,7 @@ def display_welcome_banner():
     """
     clear_terminal()
 
-    print_art_font("Pokemon Portfolio", "small", "yellow")
+    print_art_font("Pokemon Portfolio", "big", "yellow")
     print()
     print_center_string(
         colored(
