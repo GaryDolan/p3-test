@@ -223,7 +223,7 @@ class User:
             user_coll_columns = []
             num_cols = 4
             for i in range(0, len(user_collection), num_cols):
-                column = user_collection[i : i + num_cols]
+                column = user_collection[i:i + num_cols]
                 user_coll_columns.append(column)
 
             print(tabulate(user_coll_columns, tablefmt="fancy_grid"))
@@ -231,18 +231,16 @@ class User:
             # Check how many cards we show and display % complete
             percentage = round((num_cards_collected / len(card_nums) * 100))
             if percentage == 100:
-                print_styled_msg(
-                    f"Congratulation your set is {percentage}%" " complete\n", "green"
-                )
+                print_styled_msg(f"Congratulation your set is {percentage}%"
+                                 " complete\n", "green")
             else:
-                print_styled_msg(
-                    f"You have collected {percentage}%, "
-                    "of available cards in this set\n",
-                    "green",
-                )
+                print_styled_msg(f"You have collected {percentage}%, "
+                                 "of available cards in this set\n",
+                                 "green",)
         else:
             print("")
-            print_styled_msg("You do not have any cards in you collection\n", "red")
+            print_styled_msg(
+                "You do not have any cards in you collection\n", "red")
 
         input("Press enter to return to main menu\n")
 
@@ -705,7 +703,7 @@ def reset_password():
     select_from_avail_options(reset_password, "Reset password again")
 
 
-def main_menu(human_user):
+def main_menu(human_user):1
     """
     Displays a main menu to a user allowing them to select options
 
