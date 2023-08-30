@@ -32,7 +32,8 @@ try:
     # Access sheet for project
     SHEET = GSPREAD_CLIENT.open("pokemon_portfolio_test")
 except FileNotFoundError:
-    print("Creds.json not found, please ensure " "file exists and is named correctly\n")
+    print("Creds.json not found, please ensure "
+          "file exists and is named correctly\n")
     sys.exit(1)  # Exit due to err
 except gspread.exceptions.GSpreadException as gspread_e:
     print(
@@ -89,7 +90,8 @@ class User:
         # Get card number from user and validate
         while True:
             card_num_selection = input(
-                "\nEnter the card number (1-102) that you " "would like to add: \n"
+                "\nEnter the card number (1-102) that you "
+                "would like to add: \n"
             )
 
             validated_card_num = validate_selection(
@@ -124,7 +126,8 @@ class User:
             select_from_avail_options(self.add_card, "Add another card", True)
 
         else:
-            print_styled_msg("This card is already in your collection\n", "red")
+            print_styled_msg(
+                "This card is already in your collection\n", "red")
 
             select_from_avail_options(self.add_card, "Add another card", True)
 
@@ -146,7 +149,8 @@ class User:
 
         while True:
             card_num_selection = input(
-                "\nEnter the card number (1-102) that " "you would like to remove: \n"
+                "\nEnter the card number (1-102) that "
+                "you would like to remove: \n"
             )
 
             validated_card_num = validate_selection(
@@ -177,12 +181,15 @@ class User:
 
             print_pokemon(str(validated_card_num))
 
-            select_from_avail_options(self.remove_card, "Remove another card", True)
+            select_from_avail_options(
+                self.remove_card, "Remove another card", True)
 
         else:
-            print_styled_msg("You do not have this card in your collection\n", "red")
+            print_styled_msg(
+                "You do not have this card in your collection\n", "red")
 
-            select_from_avail_options(self.remove_card, "Remove another card", True)
+            select_from_avail_options(
+                self.remove_card, "Remove another card", True)
 
     def view_portfolio(self):
         """
@@ -283,7 +290,7 @@ class User:
             user_coll_columns = []
             num_cols = 4
             for i in range(0, len(user_missing_cards), num_cols):
-                column = user_missing_cards[i : i + num_cols]
+                column = user_missing_cards[i:i + num_cols]
                 user_coll_columns.append(column)
 
             print(tabulate(user_coll_columns, tablefmt="fancy_grid"))
@@ -291,13 +298,15 @@ class User:
             # Check how many cards we show and display % complete
             percentage = round((num_cards_missing / len(card_nums) * 100))
             print_styled_msg(
-                f"You are missing {percentage}%, " "of available cards in this set\n",
+                f"You are missing {percentage}%, "
+                "of available cards in this set\n",
                 "red",
             )
         else:
             print("")
             print_styled_msg(
-                "Your collection is 100% complete, " "CONGRATULATIONS\n", "green"
+                "Your collection is 100% complete, "
+                "CONGRATULATIONS\n", "green"
             )
 
         input("Press enter to return to main menu\n")
@@ -339,7 +348,8 @@ class User:
 
         print_pokemon("46")
         print_styled_msg(
-            f"Your pokemon portfolio value is, " f"${portfolio_value}\n", "green"
+            f"Your pokemon portfolio value is, "
+            f"${portfolio_value}\n", "green"
         )
 
         if portfolio_value > 0:
@@ -348,7 +358,8 @@ class User:
             )
         else:
             print_styled_msg(
-                "You do not have any pokemon cards " "in your portfolio\n", "red"
+                "You do not have any pokemon cards "
+                "in your portfolio\n", "red"
             )
 
         input("Press enter to return to main menu\n")
@@ -375,7 +386,8 @@ class User:
         clear_terminal()
         print_art_font("     Portfolio Deleted", "big", "yellow")
         print_pokemon("50")
-        print_styled_msg("Your Portfolio has been successfully deleted\n", "green")
+        print_styled_msg(
+            "Your Portfolio has been successfully deleted\n", "green")
 
         input("Press enter to return to main menu\n")
 
@@ -437,7 +449,9 @@ class User:
         clear_terminal()
         print_art_font(f"{card_name}", "big", "yellow")
         print_pokemon(f"{card_num}")
-        print(tabulate(card_details_formatted, headers="keys", tablefmt="fancy_grid"))
+        print(
+            tabulate(
+                card_details_formatted, headers="keys", tablefmt="fancy_grid"))
 
         select_from_avail_options(self.card_search, "Search again", True)
 
@@ -460,7 +474,8 @@ def display_welcome_banner():
     print()
     print_center_string(
         colored(
-            "Manage and appraise your base set pokemon" " card collection", "yellow"
+            "Manage and appraise your base set pokemon"
+            " card collection", "yellow"
         )
     )
 
@@ -481,7 +496,8 @@ def login_options():
     """
     while True:
         print_styled_msg(
-            "Please select an option (1-3) from the list " "shown and enter it below",
+            "Please select an option (1-3) from the list "
+            "shown and enter it below",
             "white",
         )
 
@@ -491,7 +507,8 @@ def login_options():
 
         login_selection = input("Enter your selection: \n")
 
-        validated_selection = validate_selection(login_selection, list(range(1, 4)))
+        validated_selection = validate_selection(
+            login_selection, list(range(1, 4)))
 
         if validated_selection == 1:
             account_login()
@@ -568,7 +585,8 @@ def account_login():
 
     elif checked_username == 0:
         print_styled_msg(
-            "The username entered is not associated " "with an account\n", "red"
+            "The username entered is not associated "
+            "with an account\n", "red"
         )
 
         select_from_avail_options(account_login, "Try again")
@@ -594,7 +612,8 @@ def create_account():
     print_pokemon("44")
 
     print("")
-    print_styled_msg("Please follow the steps below to create an account\n", "white")
+    print_styled_msg(
+        "Please follow the steps below to create an account\n", "white")
 
     # Get new user details, if API err, return to home
     username = get_valid_username()
@@ -637,7 +656,8 @@ def create_account():
 
     # Increment the next_avail_column stored in gsheets, and add a new column
     # to ensure were always ready and hava a column for next account creation
-    bss_worksheet.update_acell("A2", increment_gsheet_column_value(next_avail_column))
+    bss_worksheet.update_acell(
+        "A2", increment_gsheet_column_value(next_avail_column))
     add_column_to_sheet("base_set_shadowless")
 
     clear_terminal()
@@ -663,7 +683,8 @@ def reset_password():
     print_pokemon("63")
 
     print("")
-    print_styled_msg("Please follow the steps below to reset your password\n", "white")
+    print_styled_msg(
+        "Please follow the steps below to reset your password\n", "white")
 
     phone_num = get_valid_phone_num(False)
     print_center_string("Checking for account ....\n")
@@ -694,7 +715,8 @@ def reset_password():
 
     elif checked_phone_num == 0:  # In use
         print_styled_msg(
-            "The phone number entered is not associated " "with an acconut\n", "red"
+            "The phone number entered is not associated "
+            "with an acconut\n", "red"
         )
     else:
         display_welcome_banner()
@@ -703,7 +725,7 @@ def reset_password():
     select_from_avail_options(reset_password, "Reset password again")
 
 
-def main_menu(human_user):1
+def main_menu(human_user):
     """
     Displays a main menu to a user allowing them to select options
 
@@ -736,7 +758,8 @@ def main_menu(human_user):1
 
             menu_selection = input("Enter your selection: \n")
 
-            validated_selection = validate_selection(menu_selection, list(range(1, 9)))
+            validated_selection = validate_selection(
+                menu_selection, list(range(1, 9)))
 
             if validated_selection:
                 break
@@ -793,7 +816,8 @@ def main_menu(human_user):1
             main()
 
 
-def select_from_avail_options(function_to_call, function_text, main_menu=False):
+def select_from_avail_options(
+        function_to_call, function_text, main_menu=False):
     """
     Used to display a list of options to the user
     and allow them to make a selection
@@ -808,7 +832,8 @@ def select_from_avail_options(function_to_call, function_text, main_menu=False):
     """
     while True:
         print_styled_msg(
-            "Please select option (1 or 2) from the list shown " "and enter it below\n",
+            "Please select option (1 or 2) from the list shown "
+            "and enter it below\n",
             "white",
         )
 
@@ -1041,20 +1066,23 @@ def open_worksheet(worksheet_name):
 
     except gspread.exceptions.WorksheetNotFound as e:
         print_styled_msg(
-            f"Worksheet {e} not found, please try again, " "Loading ...\n", "red"
+            f"Worksheet {e} not found, please try again, "
+            "Loading ...\n", "red"
         )
         time.sleep(3)
         return False
     except gspread.exceptions.APIError as e:
         print_styled_msg(
-            f"Error opening worksheet: {e}, " "please try again, Loading ..\n", "red"
+            f"Error opening worksheet: {e}, "
+            "please try again, Loading ..\n", "red"
         )
         time.sleep(3)
         return False
 
     except Exception as e:
         print_styled_msg(
-            f"An error occured: {e}, " "please try again, Loading ..\n", "red"
+            f"An error occured: {e}, "
+            "please try again, Loading ..\n", "red"
         )
         time.sleep(3)
         return False
@@ -1125,7 +1153,8 @@ def get_valid_username(check_for_match=True):
             # Uses regex to check username from start to end and
             # ensures it only contains, letters, numbers, _ and -
             if not re.match("^[a-zA-Z0-9_-]*$", username):
-                raise ValueError("Username can only use letters, " "numbers, _ or -")
+                raise ValueError("Username can only use letters, "
+                                 "numbers, _ or -")
 
             if check_for_match:
                 checked_username = check_username_in_use(username)
@@ -1168,7 +1197,8 @@ def get_valid_password(hash_pass=True):
             # Uses regex to check password from start to end and ensures
             # it only contains, letters, numbers, _ , & , ! and  -
             if not re.match("^[a-zA-Z0-9_&!-]*$", password):
-                raise ValueError("Please only use letters, " "numbers, _ , - , & or !")
+                raise ValueError("Please only use letters, "
+                                 "numbers, _ , - , & or !")
 
             if hash_pass:
                 password = hash_password(password)
@@ -1178,7 +1208,8 @@ def get_valid_password(hash_pass=True):
 
         except ValueError as e:
             print("")
-            print_styled_msg(f"Invalid Password: {e}, please try again\n", "red")
+            print_styled_msg(
+                f"Invalid Password: {e}, please try again\n", "red")
 
 
 def get_valid_phone_num(check_for_match=True):
@@ -1221,7 +1252,8 @@ def get_valid_phone_num(check_for_match=True):
 
         except ValueError as e:
             print("")
-            print_styled_msg(f"Invalid phone number: {e}, " "please try again\n", "red")
+            print_styled_msg(f"Invalid phone number: {e}, "
+                             "please try again\n", "red")
 
 
 # ----------------------------- MAIN -------------------------------
