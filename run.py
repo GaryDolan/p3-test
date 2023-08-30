@@ -452,6 +452,7 @@ class User:
             tabulate(
                 card_details_formatted, headers="keys", tablefmt="github"))
         
+        input("Press enter to return to continue\n")
         select_from_avail_options(self.card_search, "Search again", True)
 
 
