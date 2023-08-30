@@ -446,7 +446,7 @@ class User:
 
         # Display card image and details
         clear_terminal()
-        print_art_font(f"{card_name}", "big", "yellow")
+        print_art_font(f"{card_name}", "small", "yellow")
         print_pokemon(f"{card_num}")
         print(
             tabulate(
