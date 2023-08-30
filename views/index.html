@@ -1,7 +1,4 @@
 <body>
-    <button onclick="window.location.reload()">Run Program</button>
-    <div id="terminal"></div>
-
     <script>
         var term = new Terminal({
             cols: 85,
@@ -23,4 +20,7 @@
         // Set focus in the terminal
         document.getElementsByClassName("xterm-helper-textarea")[0].focus();
     </script>
+
+    <button onclick="window.location.reload()">Run Program</button>
+    <div id="terminal"></div>
 </body>
