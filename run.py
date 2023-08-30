@@ -723,7 +723,7 @@ def main_menu(human_user):
         while True:
             print_styled_msg(
                 "Please select an option (1-8) from the"
-                "list shown and enter it below\n",
+                "list shown and enter it below",
                 "white",
             )
 
