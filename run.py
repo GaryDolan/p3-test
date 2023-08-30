@@ -723,7 +723,7 @@ def main_menu(human_user):
         while True:
             print_styled_msg(
                 "Please select an option (1-8) from the"
-                "list shown and enter it below",
+                "list shown and enter it below\n",
                 "white",
             )
 
@@ -734,7 +734,7 @@ def main_menu(human_user):
             print("5. Appraise portfolio")
             print("6. Delete portfolio")
             print("7. Search for card")
-            print("8. Log out\n")
+            print("8. Log out")
 
             menu_selection = input("Enter your selection: \n")
 
