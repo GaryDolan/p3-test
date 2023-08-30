@@ -345,7 +345,7 @@ class User:
             2,
         )
 
-        print_pokemon("46")
+        print_pokemon("51")
         print_styled_msg(
             f"Your pokemon portfolio value is, "
             f"${portfolio_value}", "green"
