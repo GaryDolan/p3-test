@@ -523,7 +523,7 @@ def account_login():
 
     print_styled_msg(
         "Please enter your username and password below to login "
-        "(both are case sensitive)\n",
+        "(both are case sensitive)",
         "white",
     )
 
