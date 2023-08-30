@@ -521,7 +521,6 @@ def account_login():
     print_art_font("       Account  Login", "big", "yellow")
     print_pokemon("10")
 
-    print("")
     print_styled_msg(
         "Please enter your username and password below to login "
         "(both are case sensitive)\n",
@@ -596,7 +595,8 @@ def create_account():
     print_art_font(" Account Creation", "big", "yellow")
     print_pokemon("44")
 
-    print_styled_msg("Please follow the steps below to create an account", "white")
+    print("")
+    print_styled_msg("Please follow the steps below to create an account\n", "white")
 
     # Get new user details, if API err, return to home
     username = get_valid_username()
