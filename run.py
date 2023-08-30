@@ -596,7 +596,6 @@ def create_account():
     print_art_font(" Account Creation", "big", "yellow")
     print_pokemon("44")
 
-    print("")
     print_styled_msg("Please follow the steps below to create an account\n", "white")
 
     # Get new user details, if API err, return to home
