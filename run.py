@@ -483,7 +483,7 @@ def login_options():
     """
     while True:
         print_styled_msg(
-            "Please select an option (1-3) from the list " "shown and enter it below\n",
+            "Please select an option (1-3) from the list " "shown and enter it below",
             "white",
         )
 
