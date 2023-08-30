@@ -323,7 +323,6 @@ class User:
 
         clear_terminal()
         print_art_font("      Portfolio  Value", "big", "yellow")
-        print("")
 
         bss_worksheet = open_worksheet("base_set_shadowless")
         # Exit if we had an API error
@@ -349,7 +348,7 @@ class User:
         print_pokemon("46")
         print_styled_msg(
             f"Your pokemon portfolio value is, "
-            f"${portfolio_value}\n", "green"
+            f"${portfolio_value}", "green"
         )
 
         if portfolio_value > 0:
