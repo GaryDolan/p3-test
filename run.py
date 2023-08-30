@@ -785,7 +785,7 @@ def main_menu(human_user):
             while True:
                 print_styled_msg(
                     "Please select an option (1 or 2) from the "
-                    "list shown and enter it below\n\n",
+                    "list shown and enter it below\n",
                     "white",
                 )
 
